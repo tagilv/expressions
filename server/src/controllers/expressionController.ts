@@ -1,6 +1,7 @@
 import expressionModel from "../models/expressionModel.js";
 import { Response, Request } from "express"
 
+
  const getAllExpressions = async (req: Request, res: Response): Promise<void> => {
   try {
     const allExpressions = await expressionModel.find({
@@ -18,6 +19,8 @@ import { Response, Request } from "express"
     console.log("error getting expressions", error)
   }
  }
+
+
 
 const getAllShortExpressions = async (req: Request, res: Response) => {
   console.log("req", req.params)

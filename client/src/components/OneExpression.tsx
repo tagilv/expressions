@@ -23,3 +23,30 @@ const OneExpression = ({expression}: Props) => {
 }
 
 export default OneExpression
+
+
+//Pre
+
+// import React from 'react'
+
+// interface Props {
+//   text: string;
+// }
+
+// const OneExpression = (props: Props) => {
+
+//   console.log("Hi")
+//   return (
+//     <div>
+//       <p>
+//         <>
+//         {props.text}
+//           {console.log("propssss", props.text)}
+//           {/* <OneExpression text={props.text} /> */}
+//         </>
+//       </p>
+//     </div>
+//   )
+// }
+
+// export default OneExpression

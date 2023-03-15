@@ -15,6 +15,8 @@ const expressionSchema = new Schema<Iexpression>({
   organization: { type: Schema.Types.ObjectId, ref: 'Organization' }
 });
 
+// The Iexpression interface is used as the type argument to provide typing to the model.
+
 const expressionModel = mongoose.model<Iexpression>('expression', expressionSchema);
 
 export default expressionModel

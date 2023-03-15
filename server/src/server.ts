@@ -7,7 +7,7 @@ dotenv.config();
 import expressionRoutes from "./routes/expressionRoutes.js";
 
 const app = express();
-const port = process.env.PORT || 5004;
+const port = process.env.PORT || 5005;
 
 const useMiddleWaers = () => {
   app.use(express.json());
@@ -24,15 +24,19 @@ const useMiddleWaers = () => {
 };
 
 const startServer = () => {
+  // Function takes port and accepts a callback
   app.listen(port, () => {
     console.log("server is running" + port);
   });
 };
 
 const loadRoutes = () => {
+
   app.use("/api", router);
+
   app.use("/api/expressions", expressionRoutes);
 };
+
 
 const connectMongoDB = async () => {
   try {
@@ -42,6 +46,8 @@ const connectMongoDB = async () => {
     console.log("error connecting to MongoDB", error);
   }
 };
+
+
 
 (async function controller() {
   await connectMongoDB();
