@@ -9,11 +9,8 @@ interface ExpressionType {
   short?: boolean;
 }
 
-// Here we have an array of interfacs (we use type here since we have array which is a primite)
-
 type ExpressionsType = ExpressionType[]
 
-// expressions is an array of Expression so init needs to be an array of Expression
 
 const init: ExpressionsType = [
   {
@@ -22,17 +19,6 @@ const init: ExpressionsType = [
     short: true,
   },
 ];
-
-// Using generic with a state, we can dienfine that this state can have more then one type of return
-
-// Why remove the const AllExpressions = (props: ExpressionsType) => { here?
-// Exp
-// The error message is indicating that you are trying to pass an object of type {} as props to the component AllExpressions, but the component is expecting an array of ExpressionType objects.
-
-// You have defined AllExpressions to take props of type ExpressionsType, which is an array of ExpressionType objects, but in your App.tsx file you are not passing any props to the AllExpressions component. Instead, you are trying to pass an empty object {} as props.
-
-// To fix this error, remove the props declaration from the AllExpressions component, and use the expressions state variable directly inside the component. Here is the modified AllExpressions.tsx file:
-
 
 const AllExpressions = () => {
 

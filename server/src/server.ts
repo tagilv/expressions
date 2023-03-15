@@ -47,8 +47,6 @@ const connectMongoDB = async () => {
   }
 };
 
-
-
 (async function controller() {
   await connectMongoDB();
   useMiddleWaers();
