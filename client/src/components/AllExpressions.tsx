@@ -47,6 +47,7 @@ const AllExpressions = () => {
   return (
     <>
       <p>this is the main home</p>
+      <p className="text-3xl font-bold underline">first text</p>
       <div>
           {expressions && expressions.map((expression) => (
             // <OneExpression key={expression.text} expression={expression} />
