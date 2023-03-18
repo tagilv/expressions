@@ -1,5 +1,6 @@
 import React from 'react'
 import type { ExpressionType } from './AllExpressions';
+import { Link } from 'react-router-dom';
 
 type Props = {
   expression: ExpressionType;
@@ -15,6 +16,7 @@ const OneExpression = ({expression}: Props) => {
         <>
           {expression.text}
           {console.log("propssss", expression.text)}
+          <Link to={expression.text}>Go to expression</Link>
           {/* <OneExpression text={props.text} /> */}
         </>
       </p>
