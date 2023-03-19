@@ -1,5 +1,6 @@
 import React from 'react'
 import { AllExpressions } from '../components/AllExpressions'
+import { NavLink } from 'react-router-dom'
 
 
 type Props = {}
@@ -7,8 +8,13 @@ type Props = {}
 const Home = (props: Props) => {
   return (
     <div>
+
       <AllExpressions />
-      <p>home</p>
+      <div className="flex-col text-center mt-20 mb-20">
+      </div>
+
+
+
     </div>
   )
 }

@@ -33,7 +33,6 @@ const startServer = () => {
 const loadRoutes = () => {
 
   app.use("/api", router);
-
   app.use("/api/expressions", expressionRoutes);
 };
 
