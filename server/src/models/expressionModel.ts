@@ -14,10 +14,6 @@ const expressionSchema = new Schema<IExpression>({
 });
 
 // The Iexpression interface is used as the type argument to provide typing to the model.
-
-// IExpression i helt ord expression nasta, som camelscase
-// ExpressionModel ar en class sa borde vara capital
-
 const ExpressionModel = mongoose.model<IExpression>('expression', expressionSchema);
 
 export default ExpressionModel

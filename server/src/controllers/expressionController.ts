@@ -29,13 +29,9 @@ const getExpressionById = async (req: Request, res: Response) => {
     console.log("expressionById", expressionById)
     res.status(200).json({
       expressionById,
-      // returnerar ett object, Json skickas, kolla nextjs servern, maste matcha
-      // Skulle bara kunna skicka expression och int eobjeteted, da utan {}
-    })
+      // Returning json object, check it matches return in nextjs server, refactor to just return expression
+      })
   } catch (error) {
-    // 400 client har gjort fel, client skickat fel info
-    // 500 servern har et ohanterat error, kunde inte hantera aven om den borde kunnat
-    /// 404 valid request men fanns ingen resuoruse (item)
     console.log("error", error)
     res.status(500).json({
     error,
