@@ -20,12 +20,28 @@ import { Response, Request } from "express"
   }
  }
 
-
-
-const getAllShortExpressions = async (req: Request, res: Response) => {
-  console.log("req", req.params)
-  console.log("query", req.query)
-
+const getExpressionById = async (req: Request, res: Response) => {
+  console.log("req.params from frontend", req.params)
+  console.log("req.params.id from frontend", req.params.id)
+  const {id} = req.params
+  try {
+    const expressionById = await expressionModel.findById(id)
+    console.log("expressionById", expressionById)
+    res.status(200).json({
+      expressionById,
+      // returnerar ett object, Json skickas, kolla nextjs servern, maste matcha
+      // Skulle bara kunna skicka expression och int eobjeteted, da utan {}
+    })
+  } catch (error) {
+    // 400 client har gjort fel, client skickat fel info
+    // 500 servern har et ohanterat error, kunde inte hantera aven om den borde kunnat
+    /// 404 valid request men fanns ingen resuoruse (item)
+    console.log("error", error)
+    res.status(500).json({
+    error,
+    })
+  }
 }
 
-export { getAllExpressions, getAllShortExpressions}
+
+export { getAllExpressions, getExpressionById}

@@ -1,22 +1,23 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-interface Iexpression {
+interface IExpression {
   text: string;
   likes: Number;
-  short?: Boolean;
-  organization: mongoose.Types.ObjectId;
+  _id: mongoose.Types.ObjectId;
 }
 
-const expressionSchema = new Schema<Iexpression>({
+const expressionSchema = new Schema<IExpression>({
   text: { type: String, required: true, unique: true },
-  likes: { type: Number, required: false },
-  short: { type: Boolean, required: false },
-  organization: { type: Schema.Types.ObjectId, ref: 'Organization' }
+  likes: { type: Number, required: true },
+  _id: { type: Schema.Types.ObjectId, required: true}
 });
 
 // The Iexpression interface is used as the type argument to provide typing to the model.
 
-const expressionModel = mongoose.model<Iexpression>('expression', expressionSchema);
+// IExpression i helt ord expression nasta, som camelscase
+// ExpressionModel ar en class sa borde vara capital
 
-export default expressionModel
+const ExpressionModel = mongoose.model<IExpression>('expression', expressionSchema);
+
+export default ExpressionModel
