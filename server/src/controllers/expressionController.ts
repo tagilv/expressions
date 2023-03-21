@@ -20,12 +20,24 @@ import { Response, Request } from "express"
   }
  }
 
-
-
-const getAllShortExpressions = async (req: Request, res: Response) => {
-  console.log("req", req.params)
-  console.log("query", req.query)
-
+const getExpressionById = async (req: Request, res: Response) => {
+  console.log("req.params from frontend", req.params)
+  console.log("req.params.id from frontend", req.params.id)
+  const {id} = req.params
+  try {
+    const expressionById = await expressionModel.findById(id)
+    console.log("expressionById", expressionById)
+    res.status(200).json({
+      expressionById,
+      // Returning json object, check it matches return in nextjs server, refactor to just return expression
+      })
+  } catch (error) {
+    console.log("error", error)
+    res.status(500).json({
+    error,
+    })
+  }
 }
 
-export { getAllExpressions, getAllShortExpressions}
+
+export { getAllExpressions, getExpressionById}
