@@ -1,7 +1,12 @@
-import React, { useEffect, useRef, useState, RefObject } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  RefObject,
+  useContext,
+} from "react";
 import { GetServerSideProps } from "next";
-import Image from "next/image";
-import LandingPageImage2 from "public/LandingPageImage2.png";
+import { AuthContext } from "@/context/authcontex";
 
 interface ExpressionType {
   text: string;
@@ -21,6 +26,11 @@ const ExpressionsList = ({
   // RefObject to import type for ref
   const [showChinese, setShowChinese] = useState(false);
   // const ref: RefObject<HTMLElement> = useRef(null)
+
+  //Testing context
+  const { user, setUser } = useContext(AuthContext);
+  console.log("user", user);
+  //Testing context
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredExpressions, setFilteredExpressions] = useState(
@@ -45,7 +55,7 @@ const ExpressionsList = ({
   // <div className=" bg-gray-900 pt-10 pb-14 sm:pb-20 sm:h-screen"></div>
 
   return (
-    <div className=" bg-gradient-to-r from-gray-900 to-blue-900 pt-10 pb-14 sm:pb-20 sm:h-screen">
+    <div className=" bg-gradient-to-r from-gray-900 to-blue-900 pt-2 pb-14 sm:pb-20 sm:h-screen">
       {/* <div className=" bg-gray-900 pt-10 pb-14 sm:pb-20 relative isolate overflow-hidden sm:h-screen">
       <Image
         src={LandingPageImage2}
@@ -151,27 +161,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 };
-
-// <div key={expression._id} className="bg-gray-100 rounded-xl p-4 transition-transform ease-in-out hover:scale-105">
-
-// <div className=" bg-gray-900 pt-10 pb-14 sm:pb-20"></div>
-
-// <div className="relative isolate overflow-hidden pt-14">
-// <img
-//   src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
-//   alt=""
-//   className="absolute inset-0 -z-10 h-full w-full object-cover"
-//   />
-// </div>
-
-// works
-
-// old
-
-// <div className=" bg-gray-900 pt-10 pb-14 sm:pb-20">
-//       <div className="mx-auto max-w-5xl px-6 lg:px-8">
-//         {/* mx-auto centers the div in the container above,
-//                   max-w-5xl sets the max width of the div with 64rem
-//                   lg:px-8 sets padding x at screens large and above, padding inside this div
-//                */}
-//         <div className="mx-auto max-w-2xl pt-32 pb-6 sm:py-48 lg:py-56"></div>
