@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 dotenv.config();
 import expressionRoutes from "./routes/expressionRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+
 
 const app = express();
 const port = process.env.PORT || 5005;
@@ -34,6 +36,8 @@ const loadRoutes = () => {
 
   app.use("/api", router);
   app.use("/api/expressions", expressionRoutes);
+  app.use("/api/users", userRoutes);
+
 };
 
 
