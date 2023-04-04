@@ -32,10 +32,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const response = await fetch(
     `http://localhost:5005/api/expressions/${expressionId}`
   );
-  console.log("response.text", response.status);
+  console.log("response.status", response.status);
   console.log("expressionId", expressionId);
   const data = await response.json();
-  console.log("data for singular expression", data);
+  console.log("data for singular expression", data.error);
 
   return {
     props: {

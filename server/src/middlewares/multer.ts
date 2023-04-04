@@ -21,7 +21,7 @@ const upload = multer({
 
     // gettin originalname from file and using that to get the extension
     let extension = path.extname(file.originalname);
-    if (extension !== "jpg" && extension !== ".jpeg" && extension !== ".png") {
+    if (extension !== ".jpg" && extension !== ".jpeg" && extension !== ".png") {
       cb(null, false);
       return
     }

@@ -6,6 +6,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import expressionRoutes from "./routes/expressionRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import cloudinaryConfig from "./config/cloudinary.js";
 
 
 const app = express();
@@ -23,6 +24,7 @@ const useMiddleWaers = () => {
     credentials: true,
   };
   app.use(cors(corsOptions));
+  cloudinaryConfig()
 };
 
 const startServer = () => {
