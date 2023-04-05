@@ -32,8 +32,8 @@ const ExpressionsList = ({
   console.log("user", user);
   //Testing context
 
-  const [selectedFile, setSelectedFile] = useState({} || Blob);
-  const [newUser, setNewUser] = useState({} || Blob);
+  // const [selectedFile, setSelectedFile] = useState({} || Blob);
+  // const [newUser, setNewUser] = useState({} || Blob);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredExpressions, setFilteredExpressions] = useState(
@@ -60,26 +60,26 @@ const ExpressionsList = ({
     console.log("e.target.files[0]", e.target.files[0]);
   };
 
-  const submitForm = async (e: any) => {
-    console.log("selectedFile", selectedFile);
-    e.preventDefault();
-    const formdata = new FormData();
-    formdata.append("image", selectedFile);
+  // const submitForm = async (e: any) => {
+  //   console.log("selectedFile", selectedFile);
+  //   e.preventDefault();
+  //   const formdata = new FormData();
+  //   formdata.append("image", selectedFile);
 
-    const requestOptions = {
-      method: "POST",
-      body: formdata,
-      redirect: "follow",
-    };
+  //   const requestOptions = {
+  //     method: "POST",
+  //     body: formdata,
+  //     redirect: "follow",
+  //   };
 
-    const response = await fetch(
-      "http://localhost:5005/api/users/uploadImage",
-      requestOptions
-    );
-    const result = await response.json();
-    setNewUser({ ...newUser, avatarPicture: result.image });
-    console.log("result", result);
-  };
+  //   const response = await fetch(
+  //     "http://localhost:5005/api/users/uploadImage",
+  //     requestOptions
+  //   );
+  //   const result = await response.json();
+  //   setNewUser({ ...newUser, avatarPicture: result.image });
+  //   console.log("result", result);
+  // };
 
   // <div className=" bg-gray-900 pt-10 pb-14 sm:pb-20 sm:h-screen"></div>
 
@@ -172,10 +172,10 @@ const ExpressionsList = ({
           ))}
         </div>
       </div>
-      <form action="" onChange={attachFilehandler}>
+      {/* <form action="" onChange={attachFilehandler}>
         <input type="file" />
         <button onClick={submitForm}>upload pic</button>
-      </form>
+      </form> */}
     </div>
   );
 };
