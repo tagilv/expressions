@@ -13,7 +13,7 @@ const expressionSchema = new Schema<IExpression>({
   _id: { type: Schema.Types.ObjectId, required: true}
 });
 
-// The Iexpression interface is used as the type argument to provide typing to the model.
+// The IExpression interface is used as the type argument to provide typing to the model.
 const ExpressionModel = mongoose.model<IExpression>('expression', expressionSchema);
 
 export default ExpressionModel
