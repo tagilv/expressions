@@ -5,9 +5,9 @@ type Props = {};
 
 const Signup = (props: Props) => {
   const router = useRouter();
-  const [newUserName, setNewUserName] = useState<string | undefined>();
-  const [newUserEmail, setNewUserEmail] = useState<string | undefined>();
-  const [newUserPassword, setNewPassword] = useState<string | undefined>();
+  const [newUserName, setNewUserName] = useState<string>("");
+  const [newUserEmail, setNewUserEmail] = useState<string>("");
+  const [newUserPassword, setNewPassword] = useState<string>("");
   const [newUser, setNewUser] = useState<{} | undefined>({});
 
   const handleUserNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -77,13 +77,15 @@ const Signup = (props: Props) => {
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
             Sign up
           </h2>
-          {/* <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-sm text-gray-600">
             Or{" "}
             <a
               href="#"
               className="font-medium text-indigo-600 hover:text-indigo-500"
-            ></a>
-          </p> */}
+            >
+              Sign in if you have an account
+            </a>
+          </p>
         </div>
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
